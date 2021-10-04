@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/04 13:48:21 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/04 19:36:51 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 UNAME    := $(shell uname)
 NAME 			= so_long
 SDIR			= srcs/
-FILES			= main.c
+FILES			= main.c \
+							utils/error.c utils/init.c
 SRCS		= $(addprefix $(SDIR), $(FILES))
 OBJS		= $(SRCS:.c=.o)
 CC				= gcc
