@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 11:34:38 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 12:52:10 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_map	t_map;
 
 struct	s_map
 {
-	char	**map;
+	char	**maps;
 };
 
 void	map_error(int	num);

@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:29:54 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/04 19:41:29 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 12:51:51 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	init_struct(t_map	*map)
 {
 	map = ft_calloc(sizeof(t_map), 1);
-	map->map = NULL;
+	map->maps = NULL;
 }

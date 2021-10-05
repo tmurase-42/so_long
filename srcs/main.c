@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 12:29:44 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 12:54:23 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,11 @@ void	import_mapfile(char *mapfile, t_map *map)
 		if (mapline == NULL)
 			mapline = ft_strdup(tmp);
 		else
-		{
 			mapline = ft_strjoin(mapline, tmp);
-		}
-
-		printf("line [%s]\n", mapline);
 		free(line);
 		free(tmp);
 	}
+		map->maps  = ft_split(mapline, '|');
 
 	(void)map;
 }

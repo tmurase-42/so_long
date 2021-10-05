@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 16:34:23 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/03 06:32:47 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 12:55:24 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
+#include <stdio.h>
 
 typedef struct s_list
 {
