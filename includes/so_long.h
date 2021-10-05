@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 12:52:10 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 13:37:20 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_map	t_map;
 
 struct	s_map
 {
+	int i;
 	char	**maps;
 };
 
@@ -37,5 +38,12 @@ void	import_mapfile(char *mapfile, t_map *map);
 int	catch_error(int	num,	int	error_num);
 void	systemcall_error(char *str, int num);
 void	init_struct(t_map	*map);
+
+
+
+
+//tmp
+
+void	test_print_map(t_map *map);
 
 #endif
