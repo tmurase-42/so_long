@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/04 19:43:13 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 12:29:44 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,31 @@
 void	import_mapfile(char *mapfile, t_map *map)
 {
 	int	fd;
+	int	next;
+	char	*line;
+	char	*tmp;
+	char	*mapline;
 
+	line = NULL;
+	next = 1;
+	mapline = NULL;
 	fd = catch_error(open(mapfile, O_RDONLY, O_DIRECTORY ) , 2);
+	while (next)
+	{
+		next = 	catch_error(get_next_line(fd, &line), 2);
+		tmp = ft_strjoin(line, "|");
+		if (mapline == NULL)
+			mapline = ft_strdup(tmp);
+		else
+		{
+			mapline = ft_strjoin(mapline, tmp);
+		}
+
+		printf("line [%s]\n", mapline);
+		free(line);
+		free(tmp);
+	}
+
 	(void)map;
 }
 
@@ -30,7 +53,6 @@ int	main(int argc, char *argv[])
 		map_error(1);
 	init_struct(map);
 	import_mapfile(argv[1], map);
-	// 引数のマップファイルの情報を取込むする関数
 
 
 	//引数のファイル形式が妥当かどうかのチェック
