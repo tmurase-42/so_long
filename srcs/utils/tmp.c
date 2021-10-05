@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   tmp.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 14:29:54 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 13:30:47 by tmurase          ###   ########.fr       */
+/*   Created: 2021/10/05 13:36:12 by tmurase           #+#    #+#             */
+/*   Updated: 2021/10/05 13:39:56 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_struct(t_map	*map)
+void	test_print_map(t_map *map)
 {
-	map = ft_calloc(sizeof(t_map), 1);
-	map->i = 0;
-	map->maps = NULL;
+	while (*map->maps)
+	{
+		printf("maps[%s]\n", *map->maps);
+		map->maps++;
+	}
 }
