@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:01:46 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/06 18:30:33 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/06 19:09:01 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	init_outer_wall(t_map *map)
 {
 	int	i;
 	i = 0;
-	map->outer_wall = ft_calloc(sizeof(char **), MAX_Y);
+	map->outer_wall = ft_calloc(sizeof(char **), MAX_Y + 1);
 	while (i < MAX_Y)
 	{
-		map->outer_wall[i] = null_error(ft_calloc(sizeof(char *), MAX_X), 2);
+		map->outer_wall[i] = null_error(ft_calloc(sizeof(char *), MAX_X + 1), 2);
 		i++;
 	}
 	i = 0;
@@ -33,7 +33,6 @@ void	init_outer_wall(t_map *map)
 			ft_memset(map->outer_wall[i], 'X', 1);
 			ft_memset(map->outer_wall[i] + MAX_X, 'X', 1);
 		}
-		printf("map->outer_wall [%s]\n", map->outer_wall[i]);
 		i++;
 	}
 }

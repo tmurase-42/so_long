@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/06 18:31:24 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/06 19:09:15 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,28 @@ t_bool	check_conposition(t_map *map)
 
 t_bool	check_wallissafe(t_map *map)
 {
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
 	init_outer_wall(map);
+	while (map->maps[y])
+	{
+		x = 0;
+		while (map->maps[y][x])
+		{
+			map->outer_wall[y + 2][x + 2] = map->maps[y][x];
+			x++;
+		}
+		y++;
+	}
+	x = 0;
+	while(map->outer_wall[x])
+	{
+		printf("outer_wall [%s]\n",map->outer_wall[x]);
+		x++;
+	}
 	return (TRUE);
 }
 
@@ -63,6 +84,6 @@ void	check_mapfile(t_map *map)
 		map_error(2);
 	if (check_conposition(map) == FALSE)
 		map_error(3);
-	//if (check_wallissafe(map) == FALSE)
-	//	map_error(4);
+	if (check_wallissafe(map) == FALSE)
+		map_error(4);
 }
