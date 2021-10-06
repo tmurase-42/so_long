@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/06 17:14:05 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/06 18:31:24 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,18 @@ t_bool	check_conposition(t_map *map)
 	return (TRUE);
 }
 
+t_bool	check_wallissafe(t_map *map)
+{
+	init_outer_wall(map);
+	return (TRUE);
+}
+
 void	check_mapfile(t_map *map)
 {
 	if (so_long_strchr(map) == FALSE)
 		map_error(2);
 	if (check_conposition(map) == FALSE)
 		map_error(3);
+	//if (check_wallissafe(map) == FALSE)
+	//	map_error(4);
 }

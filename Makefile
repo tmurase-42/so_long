@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/06 15:35:48 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/06 18:02:12 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SDIR			= srcs/
 FILES			= main.c \
 					leaks.c \
 					utils/error.c utils/init.c utils/get_next_line.c utils/tmp.c \
-					utils/utils.c utils/map_error.c
+					utils/utils.c utils/map_error.c utils/map_error_utils.c
 SRCS		= $(addprefix $(SDIR), $(FILES))
 OBJS		= $(SRCS:.c=.o)
 CC				= gcc

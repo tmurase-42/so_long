@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/06 17:05:26 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/06 18:13:21 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define BUFFER_SIZE 1000
+# define BUFFER_SIZE 1000
+# define MAX_X 100
+# define MAX_Y 100
 typedef struct	s_map	t_map;
 typedef struct s_composed_char t_composed_char;
 
@@ -40,6 +42,7 @@ struct	s_map
 {
 	int i;
 	char	**maps;
+	char	**outer_wall;
 	t_composed_char *composition;
 };
 
@@ -59,6 +62,8 @@ void	free_pointer(void *arg1, void *arg2, void *arg3);
 void	free_double_pointer(char **arg1, char **arg2, char **arg3);
 void	check_mapfile(t_map *map);
 t_bool	so_long_strchr(t_map *map);
+char	*null_error(char *str, int error_num);
+void	init_outer_wall(t_map *map);
 
 
 
