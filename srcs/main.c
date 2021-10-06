@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 13:45:52 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 20:28:45 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	import_mapfile(char *mapfile, t_map *map)
 	}
 	map->maps = ft_split(mapline, '|');
 	free(mapline);
-	test_print_map(map);
 }
 
 
@@ -49,9 +48,9 @@ int	main(int argc, char *argv[])
 		map_error(1);
 	init_struct(&map);
 	import_mapfile(argv[1], &map);
+	test_print_map(&map);
 
+	exit(0);
+	// mapのエラーチェック関数の作成
 
-	//引数のファイル形式が妥当かどうかのチェック
-	(void)argc;
-	(void)argv;
 }
