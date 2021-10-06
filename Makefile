@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/05 13:37:35 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/05 20:27:01 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ UNAME    := $(shell uname)
 NAME 			= so_long
 SDIR			= srcs/
 FILES			= main.c \
+							leaks.c \
 							utils/error.c utils/init.c utils/get_next_line.c utils/tmp.c
 SRCS		= $(addprefix $(SDIR), $(FILES))
 OBJS		= $(SRCS:.c=.o)
@@ -22,6 +23,13 @@ CC				= gcc
 INCLUDES	= -I./includes
 CFLAGS		= -g -Wall -Wextra -Werror $(INCLUDES)
 RM				= rm -f
+NAME_LEAKS	:= leaks_so_long
+SRCS_LEAKS	:= leaks.c
+
+ifdef LEAKS
+NAME	:= $(NAME_LEAKS)
+endif
+
 ifeq ($(UNAME), Linux)
 MLXFLAGS	= -lXext -lX11
 else
@@ -49,6 +57,8 @@ fclean: clean
 	$(RM) $(NAME) libmlx_Linux.a .minilibx-linux/libmlx_Linux.a
 
 re: fclean all
+leaks   :
+    $(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
 else
 
 all: $(NAME)
@@ -71,6 +81,8 @@ fclean: clean
 
 re: fclean all
 
+leaks	:
+	$(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
 endif
 
 .PHONY: all fclean clean re

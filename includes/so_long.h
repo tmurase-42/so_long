@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 13:37:20 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 20:15:41 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "../libft/libft.h"
 #include "../mlx/mlx.h"
 #include "get_next_line.h"
+#include "leaks.h"
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
@@ -24,7 +25,7 @@
 #include <fcntl.h>
 
 #define BUFFER_SIZE 1000
-
+# define LEAKS 0
 typedef struct	s_map	t_map;
 
 struct	s_map
