@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/06 15:35:26 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/06 17:05:26 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ struct	s_map
 	t_composed_char *composition;
 };
 
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}	t_bool;
+
+
 void	map_error(int	num);
 void	import_mapfile(char *mapfile, t_map *map);
 int	catch_error(int	num,	int	error_num);
@@ -51,6 +58,7 @@ void	init_struct(t_map	*map);
 void	free_pointer(void *arg1, void *arg2, void *arg3);
 void	free_double_pointer(char **arg1, char **arg2, char **arg3);
 void	check_mapfile(t_map *map);
+t_bool	so_long_strchr(t_map *map);
 
 
 
