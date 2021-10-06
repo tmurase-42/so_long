@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   leaks.c                                            :+:      :+:    :+:   */
+/*   map_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 15:48:34 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 20:27:57 by tmurase          ###   ########.fr       */
+/*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
+/*   Updated: 2021/10/06 15:36:06 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "leaks.h"
+#include "so_long.h"
 
-#if LEAKS
-
-void	end(void)
+void	check_mapfile(t_map *map)
 {
-	system("leaks leaks_so_long");
+	(void)map;
 }
-
-#endif

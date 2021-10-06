@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 20:15:41 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/06 15:35:26 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,22 @@
 #include <fcntl.h>
 
 #define BUFFER_SIZE 1000
-# define LEAKS 0
 typedef struct	s_map	t_map;
+typedef struct s_composed_char t_composed_char;
+
+
+struct s_composed_char
+{
+	int collectible;
+	int exit_door;
+	int start_point;
+};
 
 struct	s_map
 {
 	int i;
 	char	**maps;
+	t_composed_char *composition;
 };
 
 void	map_error(int	num);
@@ -39,6 +48,9 @@ void	import_mapfile(char *mapfile, t_map *map);
 int	catch_error(int	num,	int	error_num);
 void	systemcall_error(char *str, int num);
 void	init_struct(t_map	*map);
+void	free_pointer(void *arg1, void *arg2, void *arg3);
+void	free_double_pointer(char **arg1, char **arg2, char **arg3);
+void	check_mapfile(t_map *map);
 
 
 
