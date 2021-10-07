@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/07 16:01:06 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/07 17:07:00 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct	s_img
 struct s_mlx
 {
 	void	*mlx;
+	void	*window;
 	t_img	img;
 	t_map	*map;
 	int	**texture;
