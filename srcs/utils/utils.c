@@ -5,17 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 11:16:09 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/06 11:22:17 by tmurase          ###   ########.fr       */
+/*   Created: 2021/10/06 14:49:17 by tmurase           #+#    #+#             */
+/*   Updated: 2021/10/07 09:27:12 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_free(void *arg1, void *arg2)
+void	free_pointer(void *arg1, void *arg2, void *arg3)
 {
-	printf("size arg1 [%lu]\n", sizeof(arg1));
-	printf("size arg2[%lu]\n", sizeof(arg2));
-	free(arg1);
-	free(arg2);
+	if (arg1)
+		free(arg1);
+	if (arg2)
+		free(arg2);
+	if (arg3)
+		free(arg3);
+}
+
+void	free_double_pointer(char **arg1, char **arg2, char **arg3)
+{
+	if (arg1)
+	{
+		while (*arg1)
+		{
+			free(arg1);
+			arg1++;
+		}
+		free(arg1);
+	}
+	if (arg2)
+	{
+		while (*arg2)
+		{
+			free(arg2);
+			arg2++;
+		}
+		free(arg2);
+	}
+	if (arg3)
+	{
+		while (*arg3)
+		{
+			free(arg3);
+			arg3++;
+		}
+		free(arg3);
+	}
 }

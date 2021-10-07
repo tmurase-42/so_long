@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/05 20:27:01 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/06 18:02:12 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ UNAME    := $(shell uname)
 NAME 			= so_long
 SDIR			= srcs/
 FILES			= main.c \
-							leaks.c \
-							utils/error.c utils/init.c utils/get_next_line.c utils/tmp.c
+					leaks.c \
+					utils/error.c utils/init.c utils/get_next_line.c utils/tmp.c \
+					utils/utils.c utils/map_error.c utils/map_error_utils.c
 SRCS		= $(addprefix $(SDIR), $(FILES))
 OBJS		= $(SRCS:.c=.o)
 CC				= gcc
@@ -57,8 +58,8 @@ fclean: clean
 	$(RM) $(NAME) libmlx_Linux.a .minilibx-linux/libmlx_Linux.a
 
 re: fclean all
-leaks   :
-    $(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
+leaks	:
+	$(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
 else
 
 all: $(NAME)
@@ -68,6 +69,7 @@ $(NAME): $(OBJS)
 	$(MAKE) -C ./mlx
 	cp ./mlx/libmlx.dylib libmlx.dylib
 	$(CC) $(OBJS) $(CFLAGS) $(MLXFLAGS) -lm ./libft/libft.a -o $(NAME)
+	#$(CC) $(OBJS) $(CFLAGS) $(MLXFLAGS) -lm ./libft/libft.a -o $(NAME) -g -fsanitize=address
 
 clean:
 	$(MAKE) -C ./libft clean
@@ -99,7 +101,6 @@ gdb:
 	gdb a.out test.cub
 m:
 	$(CC) -Wall -Wextra -Werror $(SRCS) -g -fsanitize=address
-	./a.out test.cub
 v:
 	$(CC) -Wall -Wextra -Werror $(SRCS) -g
 	valgrind ./a.out test.cub

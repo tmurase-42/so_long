@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:10:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/04 19:43:34 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/07 10:20:23 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@ void	map_error(int	num)
 {
 	ft_putstr_fd("Error\n", 2);
 	if (num == 1)
-		ft_putstr_fd("Number of arguments is invalid\n", 2);
+		ft_putstr_fd("number of arguments is invalid\n", 2);
+	if (num == 2)
+		ft_putstr_fd("map information has an invalid value\n", 2);
+	if (num == 3)
+		ft_putstr_fd("too many or too few compositions\n", 2);
+	if (num == 4)
+		ft_putstr_fd("map is not walled off\n", 2);
+	system("leaks so_long");
 	exit(2);
 }
 

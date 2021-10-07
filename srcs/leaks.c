@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:48:34 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 20:09:39 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/05 20:27:57 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	end(void)
 {
-	system("leaks leaks_pipex");
+	system("leaks leaks_so_long");
 }
 
 #endif
