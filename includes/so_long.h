@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/07 17:07:00 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/08 17:28:51 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "../libft/libft.h"
 #include "../mlx/mlx.h"
 #include "get_next_line.h"
+#include "key_macros.h"
 #include "leaks.h"
 #include <stdio.h>
 #include <errno.h>
@@ -106,6 +107,8 @@ void	flood_fill(int x, int y, t_map *map, int *status);
 void	get_start_position(t_map *map);
 void	import_texture(t_map *map, t_mlx *mlx);
 char	**get_texture_path(void);
+int		close_window(t_mlx *mlx);
+int		key_press(int key, t_mlx *mlx);
 
 
 
