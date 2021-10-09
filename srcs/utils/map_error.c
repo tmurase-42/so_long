@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/07 16:01:31 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 12:51:54 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ t_bool	check_conposition(t_map *map)
 		return (FALSE);
 	if (map->composition->start_point > 1)
 		return (FALSE);
-	get_start_position(map);
 	return (TRUE);
 }
 
@@ -91,12 +90,13 @@ t_bool	check_wallissafe(t_map *map)
 	return (TRUE);
 }
 
-void	check_mapfile(t_map *map)
+void	check_mapfile(t_mlx *mlx)
 {
-	if (so_long_strchr(map) == FALSE)
+	if (so_long_strchr(mlx->map) == FALSE)
 		map_error(2);
-	if (check_conposition(map) == FALSE)
+	if (check_conposition(mlx->map) == FALSE)
 		map_error(3);
-	if (check_wallissafe(map) == FALSE)
+	get_position(mlx);
+	if (check_wallissafe(mlx->map) == FALSE)
 		map_error(4);
 }

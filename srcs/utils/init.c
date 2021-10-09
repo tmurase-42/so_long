@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:29:54 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 11:34:40 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 19:10:00 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,15 @@ static	void	init_struct_2(t_map *map, t_mlx *mlx)
 {
 	mlx->mlx = NULL;
 	mlx->map = map;
+	mlx->window_size[X] = 0;
+	mlx->window_size[Y] = 0;
 	init_img(mlx->img);
 	init_img(mlx->player);
 	init_img(mlx->door);
 	init_img(mlx->item);
 	init_img(mlx->wall);
+	mlx->item_list = NULL;
+	mlx->door_list = NULL;
 }
 
 void	init_struct(t_map	*map, t_mlx *mlx)
