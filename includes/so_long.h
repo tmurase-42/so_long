@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/08 17:28:51 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 12:11:27 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 # define MAX_Y 100
 typedef struct	s_map	t_map;
 typedef struct s_mlx	t_mlx;
-typedef struct s_img	t_img;
+typedef struct s_texture	t_texture;
 typedef struct s_composed_char t_composed_char;
-typedef	enum	e_postion	t_postion;
+typedef	enum	e_pos	t_pos;
 typedef enum	e_tex	t_tex;
 
 struct s_composed_char
@@ -58,10 +58,13 @@ struct s_mlx
 	void	*mlx;
 	void	*window;
 	t_img	img;
+	t_img	player;
+	t_img	door;
+	t_img	item;
+	t_img	wall;
 	t_map	*map;
 	int	**texture;
 };
-
 
 struct	s_map
 {
@@ -78,7 +81,7 @@ typedef enum e_bool
 	TRUE
 }	t_bool;
 
-typedef enum e_postion
+typedef enum e_pos
 {
 	X,
 	Y
@@ -109,6 +112,7 @@ void	import_texture(t_map *map, t_mlx *mlx);
 char	**get_texture_path(void);
 int		close_window(t_mlx *mlx);
 int		key_press(int key, t_mlx *mlx);
+void	get_position(t_map *map);
 
 
 
