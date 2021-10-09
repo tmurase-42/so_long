@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:49:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/07 16:08:43 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 19:10:17 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,15 @@ void	free_double_pointer(char **arg1)
 			i++;
 		}
 		free(arg1);
+	}
+}
+
+void	free_struct(t_list *list)
+{
+	while(list)
+	{
+		free(list->content);
+		free(list);
+		list = list->next;
 	}
 }

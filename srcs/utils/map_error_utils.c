@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:01:46 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/07 12:21:50 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:08:06 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,6 @@ void	init_outer_wall(t_map *map)
 	}
 }
 
-void	get_start_position(t_map *map)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (map->maps[y])
-	{
-		x = 0;
-		while (map->maps[y][x])
-		{
-			if (map->maps[y][x] == 'P')
-			{
-				map->postion[X] = x;
-				map->postion[Y] = y;
-			}
-			x++;
-		}
-		y++;
-	}
-}
 
 void	flood_fill(int x, int y, t_map *map, int *status)
 {

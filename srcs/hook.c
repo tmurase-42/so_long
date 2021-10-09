@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:17:47 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/08 17:34:32 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:13:09 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int	close_window(t_mlx *mlx)
 {
+
+
+	//free_struct(mlx->item_list);
+	//free_struct(mlx->door_list);
 	system("leaks so_long");
 	//mlx_destroy_window(mlx->mlx, mlx->window);
-	exit(2);
+	exit(0);
 	(void)mlx;
 	return (0);
 }

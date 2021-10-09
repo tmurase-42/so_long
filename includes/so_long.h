@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/08 17:28:51 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/09 18:59:53 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 # define MAX_Y 100
 typedef struct	s_map	t_map;
 typedef struct s_mlx	t_mlx;
-typedef struct s_img	t_img;
+typedef struct s_texture	t_texture;
 typedef struct s_composed_char t_composed_char;
-typedef	enum	e_postion	t_postion;
+typedef	enum	e_pos	t_pos;
 typedef enum	e_tex	t_tex;
 
 struct s_composed_char
@@ -57,11 +57,16 @@ struct s_mlx
 {
 	void	*mlx;
 	void	*window;
+	int		window_size[2];
 	t_img	img;
+	t_img	player;
+	t_img	door;
+	t_img	item;
+	t_img	wall;
 	t_map	*map;
-	int	**texture;
+	t_list *item_list;
+	t_list *door_list;
 };
-
 
 struct	s_map
 {
@@ -78,7 +83,7 @@ typedef enum e_bool
 	TRUE
 }	t_bool;
 
-typedef enum e_postion
+typedef enum e_pos
 {
 	X,
 	Y
@@ -99,7 +104,8 @@ void	systemcall_error(char *str, int num);
 void	init_struct(t_map	*map, t_mlx *mlx);
 void	free_pointer(void *arg1, void *arg2, void *arg3);
 void	free_double_pointer(char **arg1);
-void	check_mapfile(t_map *map);
+void	free_struct(t_list *list);
+void	check_mapfile(t_mlx *mlx);
 t_bool	so_long_strchr(t_map *map);
 char	*null_error(char *str, int error_num);
 void	init_outer_wall(t_map *map);
@@ -109,11 +115,14 @@ void	import_texture(t_map *map, t_mlx *mlx);
 char	**get_texture_path(void);
 int		close_window(t_mlx *mlx);
 int		key_press(int key, t_mlx *mlx);
+void	get_position(t_mlx *mlx);
+void	get_items_position(t_mlx *mlx);
 
 
 
 
 //tmp
 void	test_print_map(t_map *map);
+void	test_printf_items(t_mlx *mlx);
 
 #endif
