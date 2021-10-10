@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 12:51:54 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/10 20:19:01 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ t_bool	check_wallissafe(t_map *map)
 	x = 0;
 	while(x < MAX_X)
 	{
-		printf("outer_wall [%s]\n",map->outer_wall[x]);
+		//printf("outer_wall [%s]\n",map->outer_wall[x]);
 		x++;
 	}
 	flood_fill(map->postion[X] + 2, map->postion[Y] + 2 , map, &status);
 	x = 0;
 	while(x < MAX_X)
 	{
-		printf("outer_wall [%s]\n",map->outer_wall[x]);
+		//printf("outer_wall [%s]\n",map->outer_wall[x]);
 		x++;
 	}
 	//free_double_pointer(map->outer_wall);

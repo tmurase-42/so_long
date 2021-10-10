@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/10 19:54:28 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/10 20:44:34 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char *argv[])
 	init_struct(&map, &mlx);
 	import_mapfile(argv[1], &map);
 	check_mapfile(&mlx);
-	//test_print_map(&map);
+	test_print_map(&map);
 	so_long(&mlx);
 	system("leaks so_long");
 	exit(0);

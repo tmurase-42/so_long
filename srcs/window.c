@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:13:59 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/10 14:43:07 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/10 19:59:03 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,4 @@ void	get_window_size(t_mlx *mlx)
 	decesion_texture_length(mlx);
 	mlx->window_size[X] = mlx->texture_piece_length * (ft_strlen(*mlx->map->maps));
 	mlx->window_size[Y] = mlx->texture_piece_length * (get_map_y_length(mlx->map));
-	printf("window_size[X] [%d]\n", mlx->window_size[X]);
-	printf("window_size[Y] [%d]\n", mlx->window_size[Y]);
-
 }
