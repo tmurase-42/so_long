@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:55:20 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 11:39:15 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/10 19:43:51 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ void	import_texture(t_map *map, t_mlx *mlx)
 	load_image(mlx, &mlx->door, "./texture/door.xpm");
 	load_image(mlx, &mlx->item, "./texture/item.xpm");
 	load_image(mlx, &mlx->wall, "./texture/wall.xpm");
+
+	//while (mlx->player.data != NULL)
+	//	printf("mlx->palyer [%p]\n", mlx->player.data++);
 	(void)map;
 }

@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 18:59:53 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/10 19:02:02 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ struct s_mlx
 	void	*mlx;
 	void	*window;
 	int		window_size[2];
+	int		os_window_size[2];
+	int		texture_piece_length;
 	t_img	img;
 	t_img	player;
 	t_img	door;
@@ -117,6 +119,9 @@ int		close_window(t_mlx *mlx);
 int		key_press(int key, t_mlx *mlx);
 void	get_position(t_mlx *mlx);
 void	get_items_position(t_mlx *mlx);
+void	get_window_size(t_mlx *mlx);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	draw_so_long(t_mlx *mlx);
 
 
 

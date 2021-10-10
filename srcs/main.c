@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 19:10:17 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/10 19:54:28 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ void	so_long(t_mlx *mlx)
 
 	if (!(mlx->mlx = mlx_init()))
 		systemcall_error("Error\nso_long", 2);
-
-	mlx->img.img = mlx_new_image(mlx->mlx, 1000, 1000);
-	mlx->window = mlx_new_window(mlx->mlx, 1000, 1000, "so_long");
+	get_window_size(mlx);
+	mlx->img.img = mlx_new_image(mlx->mlx, mlx->window_size[X], mlx->window_size[Y]);
+	mlx->window = mlx_new_window(mlx->mlx, mlx->window_size[X], mlx->window_size[Y], "so_long");
 	mlx->img.data = (int *)mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.size_l, &mlx->img.endian);
 	import_texture(mlx->map, mlx);
 	//色塗り
+	draw_so_long(mlx);
+	mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->img.img, 0 , 0);
 	//テクスチャの貼り付け
 	//移動
 	//閉じる処理
@@ -52,7 +54,7 @@ int	main(int argc, char *argv[])
 	init_struct(&map, &mlx);
 	import_mapfile(argv[1], &map);
 	check_mapfile(&mlx);
-	test_print_map(&map);
+	//test_print_map(&map);
 	so_long(&mlx);
 	system("leaks so_long");
 	exit(0);
