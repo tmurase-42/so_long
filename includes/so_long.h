@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/10 20:38:33 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 13:55:34 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ void	get_items_position(t_mlx *mlx);
 void	get_window_size(t_mlx *mlx);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_so_long(t_mlx *mlx);
-int		get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
+//int		get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
+char		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
 
 
 
