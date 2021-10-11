@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 15:43:03 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 17:38:33 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,19 @@
 # define BUFFER_SIZE 1000
 # define MAX_X 100
 # define MAX_Y 100
+
+# if defined(__linux__)
+# define OS_TYPE 0
+# else
+# define OS_TYPE 1
+# endif
 typedef struct	s_map	t_map;
 typedef struct s_mlx	t_mlx;
 typedef struct s_texture	t_texture;
 typedef struct s_composed_char t_composed_char;
 typedef	enum	e_pos	t_pos;
 typedef enum	e_tex	t_tex;
+typedef enum	e_os	t_os;
 
 struct s_composed_char
 {
@@ -87,9 +94,15 @@ typedef enum e_bool
 
 typedef enum e_pos
 {
-	X,
-	Y
+	x,
+	y
 }	t_postion;
+
+enum e_os
+{
+	LINUX,
+	APPLE
+};
 
 typedef enum e_tex
 {
