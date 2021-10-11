@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 14:38:55 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 17:11:31 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,16 @@ void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 		x = 0;
 		while (x < mlx->texture_piece_length)
 		{
-			//*(int *)color = 0x008fff;
 			if (texture != NULL)
 				color = get_texture_pixel_color(texture, mlx, x, y);
+			else
+				*(int *)color = 0xFFFFFF;
 			my_mlx_pixel_put(&mlx->img, (map_x * mlx->texture_piece_length) + x,
 			(map_y * mlx->texture_piece_length) + y, *(int *)color);
 			x++;
 		}
 		y++;
 	}
-
-
 }
 
 void	draw_so_long(t_mlx *mlx)
