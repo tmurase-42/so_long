@@ -24,7 +24,7 @@ void	so_long(t_mlx *mlx)
 	//mlxのループ
 
 	if (!(mlx->mlx = mlx_init()))
-		systemcall_error("Error\nso_long", 2);
+		systemcall_error("Error\nso_long", 2);	
 	get_window_size(mlx);
 	mlx->img.img = mlx_new_image(mlx->mlx, mlx->window_size[X], mlx->window_size[Y]);
 	mlx->window = mlx_new_window(mlx->mlx, mlx->window_size[X], mlx->window_size[Y], "so_long");

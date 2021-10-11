@@ -92,11 +92,11 @@ typedef enum e_bool
 	TRUE
 }	t_bool;
 
-typedef enum e_pos
+enum e_pos
 {
-	x,
-	y
-}	t_postion;
+	X,
+	Y
+};
 
 enum e_os
 {

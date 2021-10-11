@@ -21,6 +21,7 @@ void	init_img(t_img img)
 	img.img_height = 0;
 	img.img_width = 0;
 	img.size_l = 0;
+	(void)img;
 }
 
 static	void	init_struct_2(t_map *map, t_mlx *mlx)
