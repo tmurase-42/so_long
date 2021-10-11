@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 16:57:38 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 21:11:49 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	so_long(t_mlx *mlx)
 	//mlxのループ
 
 	if (!(mlx->mlx = mlx_init()))
-		systemcall_error("Error\nso_long", 2);	
+		systemcall_error("Error\nso_long", 2);
 	get_window_size(mlx);
 	mlx->img.img = mlx_new_image(mlx->mlx, mlx->window_size[X], mlx->window_size[Y]);
 	mlx->window = mlx_new_window(mlx->mlx, mlx->window_size[X], mlx->window_size[Y], "so_long");
@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 {
 	t_map	map;
 	t_mlx	mlx;
-	//引数が存在するかどうかのチェック
+
 	if (argc != 2)
 		map_error(1);
 	init_struct(&map, &mlx);
@@ -58,7 +58,4 @@ int	main(int argc, char *argv[])
 	check_mapfile(&mlx);
 	test_print_map(&map);
 	so_long(&mlx);
-	system("leaks so_long");
-	exit(0);
-	// mapのエラーチェック関数の作成
 }
