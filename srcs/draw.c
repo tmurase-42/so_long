@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 13:57:00 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:30:52 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = (char *)data->data + (y * data->size_l + x * (data->bpp / 8));
+	//dst = (char *)data->data + (y * data->size_l + x * (data->bpp / 8));
+	//data->addr[y * data->width + x]
+	dst = (char *)data->data + (y * (data->size_l) + x * (data->bpp / 8));
+	//dst = (char *)data->data + (y * (data->size_l) + x);
 	*(unsigned int*)dst = color;
 }
 
@@ -43,12 +46,12 @@ char	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 	txt_y = 0;
 	txt_x = tex->img_width / (100 / (((double)x / mlx->texture_piece_length) * 100.0));
 	txt_y = tex->img_height / (100 / (((double)y / mlx->texture_piece_length) * 100.0));
-	//printf("before\n");
-	color = (char *)tex->data + ((4 * tex->img_width * txt_y) + (4 * txt_x));
-	//printf("after\n");
-	//printf("color [%d]\n", *color);
-	//color = tex->data + ((4 * tex->img_height * txt_y) + (4 * txt_x));
-	//color = tex->data + ((tex->img_width * txt_y) + (txt_x));
+
+	// Linux OS
+	//color = (char *)tex->data + ((4 * tex->img_width * txt_y) + (4 * txt_x));
+
+	// Mac OS
+	color = (char *)tex->data + ((4 * (tex->size_l / 4) * txt_y) + (4 * txt_x));
 	return (color);
 }
 
@@ -60,7 +63,6 @@ void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 	t_img *texture;
 
 	y = 0;
-	//一枚のテクスチャ分のピクセルの色付けを行う。
 	texture = pickup_texturetype(mlx->map, mlx ,map_x, map_y);
 	while (y < mlx->texture_piece_length)
 	{
@@ -70,10 +72,6 @@ void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 			//color = 0x008fff;
 			if (texture != NULL)
 				color = get_texture_pixel_color(texture, mlx, x, y);
-			printf("color [%d]\n", *(int *)color);
-			//printf("count [%d]\n", x);
-			//printf("count [%d]\n", y);
-			//printf("texture_piece_length [%d]\n", mlx->texture_piece_length);
 			my_mlx_pixel_put(&mlx->img, (map_x * mlx->texture_piece_length) + x,
 			(map_y * mlx->texture_piece_length) + y, *(int *)color);
 			x++;
