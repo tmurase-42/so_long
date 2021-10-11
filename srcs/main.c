@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/10 20:44:34 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:57:38 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ void	so_long(t_mlx *mlx)
 	//テクスチャの貼り付け
 	//移動
 	//閉じる処理
+
+	//printf("position[x] [%p]\n", mlx->map->postion);
 	mlx_loop_hook(mlx->mlx, &loop_function, mlx);
-	mlx_hook(mlx->window, X_EVENT_KEY_PRESS, (1L << 2), &key_press, &mlx);
+	mlx_hook(mlx->window, X_EVENT_KEY_PRESS, (1L << 2), &key_press, mlx);
 	mlx_hook(mlx->window, X_EVENT_KEY_EXIT, (1L << 17), &close_window, &mlx);
 	mlx_loop(mlx->mlx);
 	//mlx_destroy_window(mlx->mlx, mlx->window);

@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/10 19:42:05 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/11 15:48:14 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ UNAME    := $(shell uname)
 NAME 			= so_long
 SDIR			= srcs/
 FILES			= main.c import.c import_utils.c hook.c position.c\
-					leaks.c window.c draw.c\
+					leaks.c window.c draw.c action.c\
 					utils/error.c utils/init.c utils/get_next_line.c utils/tmp.c \
 					utils/utils.c utils/map_error.c utils/map_error_utils.c
 SRCS		= $(addprefix $(SDIR), $(FILES))

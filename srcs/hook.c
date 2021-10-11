@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:17:47 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 14:13:09 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:58:50 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	key_press(int key, t_mlx *mlx)
 
 	if (key == K_ESC)
 		ESC_case();
-	(void)mlx;
+	if (key == K_S || key == K_W || key == K_A || key == K_D)
+		action_cace(mlx, key);
 	return (0);
 }
