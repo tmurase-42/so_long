@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:55:20 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:32:56 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:46:25 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ char	*get_mapinfo(int fd)
 
 void	check_filename(char *filename, char *extension)
 {
-	int	i;
-	char *file_extention;
+	int		i;
+	char	*file_extention;
 
 	i = 0;
 	file_extention = ft_strchr(filename, '.');
 	if (!file_extention)
 		map_error(8);
 	if (ft_strncmp(file_extention, extension,
-		ft_max(ft_strlen(file_extention), ft_strlen(extension))) != 0)
+			ft_max(ft_strlen(file_extention), ft_strlen(extension))) != 0)
 		map_error(8);
 }
 
