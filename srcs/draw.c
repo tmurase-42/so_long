@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 17:56:33 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:08:11 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 
 	txt_x = 0;
 	txt_y = 0;
-	txt_x = tex->img_width / (100 / (((double)x / mlx->texture_piece_length) * 100.0));
-	txt_y = tex->img_height / (100 / (((double)y / mlx->texture_piece_length) * 100.0));
+	txt_x = tex->img_width / (100 / (((double)x / mlx->tex_piece_length) * 100.0));
+	txt_y = tex->img_height / (100 / (((double)y / mlx->tex_piece_length) * 100.0));
 
 	// Linux OS
 	if (OS_TYPE == LINUX)
@@ -64,17 +64,17 @@ void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 
 	y = 0;
 	texture = pickup_texturetype(mlx->map, mlx ,map_x, map_y);
-	while (y < mlx->texture_piece_length)
+	while (y < mlx->tex_piece_length)
 	{
 		x = 0;
-		while (x < mlx->texture_piece_length)
+		while (x < mlx->tex_piece_length)
 		{
 			if (texture != NULL)
 				color = get_texture_pixel_color(texture, mlx, x, y);
 			else
 				*(int *)color = 0xFFFFFF;
-			my_mlx_pixel_put(&mlx->img, (map_x * mlx->texture_piece_length) + x,
-			(map_y * mlx->texture_piece_length) + y, *(int *)color);
+			my_mlx_pixel_put(&mlx->img, (map_x * mlx->tex_piece_length) + x,
+			(map_y * mlx->tex_piece_length) + y, *(int *)color);
 			x++;
 		}
 		y++;

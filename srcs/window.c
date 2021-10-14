@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:13:59 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/10 19:59:03 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:08:11 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	decesion_texture_length(t_mlx *mlx)
 	{
 		texture_length[X] = texture_length[Y];
 	}
-	mlx->texture_piece_length = texture_length[X];
+	mlx->tex_piece_length = texture_length[X];
 }
 
 void	get_window_size(t_mlx *mlx)
 {
 	mlx_get_screen_size(mlx->mlx, &mlx->os_window_size[X], &mlx->os_window_size[Y]);
 	decesion_texture_length(mlx);
-	mlx->window_size[X] = mlx->texture_piece_length * (ft_strlen(*mlx->map->maps));
-	mlx->window_size[Y] = mlx->texture_piece_length * (get_map_y_length(mlx->map));
+	mlx->window_size[X] = mlx->tex_piece_length * (ft_strlen(*mlx->map->maps));
+	mlx->window_size[Y] = mlx->tex_piece_length * (get_map_y_length(mlx->map));
 }

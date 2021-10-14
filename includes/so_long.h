@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 12:08:38 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:08:11 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ struct s_mlx
 	void	*window;
 	int		window_size[2];
 	int		os_window_size[2];
-	int		texture_piece_length;
+	int		tex_piece_length;
 	t_img	img;
 	t_img	player;
 	t_img	door;
