@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:10:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/07 16:36:46 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:24:04 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	map_error(int	num)
 		ft_putstr_fd("file size is too big\n", 2);
 	if (num == 6)
 		ft_putstr_fd("Texture must be squere\n", 2);
+	if (num == 7)
+		ft_putstr_fd("map is not rectangular\n", 2);
+	if (num == 8)
+		ft_putstr_fd("mapfile name is invalid\n", 2);
 	system("leaks so_long");
 	exit(2);
 }

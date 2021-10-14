@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 12:08:38 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:31:45 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ struct s_mlx
 	void	*window;
 	int		window_size[2];
 	int		os_window_size[2];
-	int		texture_piece_length;
+	int		tex_piece_length;
 	t_img	img;
 	t_img	player;
 	t_img	door;
@@ -139,6 +139,8 @@ void	draw_so_long(t_mlx *mlx);
 char		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
 void		action_cace(t_mlx *mlx, int key);
 void		initialize_so_long(t_mlx *mlx);
+t_bool		ft_min(int x, int y);
+t_bool		ft_max(int x, int y);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/10 20:19:01 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:00:07 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_bool	so_long_strchr(t_map *map)
 		else if (map->maps[p][i] != '0' && map->maps[p][i] != '1'
 				&& map->maps[p][i] != '\0')
 			return (FALSE);
-		else if(map->maps[p][i] == '\0')
+		else if (map->maps[p][i] == '\0')
 		{
 			p++;
 			i = 0;
@@ -42,7 +42,7 @@ t_bool	so_long_strchr(t_map *map)
 
 t_bool	check_conposition(t_map *map)
 {
-	if (map->composition->collectible > 10)
+	if (map->composition->collectible > 20)
 		return (FALSE);
 	if (map->composition->exit_door > 1)
 		return (FALSE);
@@ -55,7 +55,7 @@ t_bool	check_wallissafe(t_map *map)
 {
 	int	x;
 	int	y;
-	int status;
+	int	status;
 
 	x = 0;
 	y = 0;
@@ -71,27 +71,36 @@ t_bool	check_wallissafe(t_map *map)
 		}
 		y++;
 	}
-	x = 0;
-	while(x < MAX_X)
-	{
-		//printf("outer_wall [%s]\n",map->outer_wall[x]);
-		x++;
-	}
-	flood_fill(map->postion[X] + 2, map->postion[Y] + 2 , map, &status);
-	x = 0;
-	while(x < MAX_X)
-	{
-		//printf("outer_wall [%s]\n",map->outer_wall[x]);
-		x++;
-	}
-	//free_double_pointer(map->outer_wall);
+	flood_fill(map->postion[X] + 2, map->postion[Y] + 2, map, &status);
 	if (status == FALSE)
 		return (FALSE);
 	return (TRUE);
 }
 
+t_bool	is_rectangular(t_map *map)
+{
+	size_t	length;
+	size_t	old_length;
+	int		i;
+
+	length = 0;
+	i = 0;
+	old_length = ft_strlen(map->maps[0]);
+	while (map->maps[i])
+	{
+		length = ft_strlen(map->maps[i]);
+		if (length != old_length)
+			return (FALSE);
+		old_length = length;
+		i++;
+	}
+	return (TRUE);
+}
+
 void	check_mapfile(t_mlx *mlx)
 {
+	if (is_rectangular(mlx->map) == FALSE)
+		map_error(7);
 	if (so_long_strchr(mlx->map) == FALSE)
 		map_error(2);
 	if (check_conposition(mlx->map) == FALSE)

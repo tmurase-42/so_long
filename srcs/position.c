@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:29 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 14:13:36 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 12:42:06 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*create_items_node(int x, int y)
 {
-	int *position;
+	int		*position;
 	t_list	*node;
 
 	position = ft_calloc(2, sizeof(int *));
