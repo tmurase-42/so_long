@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/14 13:32:02 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/14 14:00:22 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,19 +88,3 @@ leaks	:
 endif
 
 .PHONY: all fclean clean re
-
-# 以下、テスト用のコマンド
-test:
-	$(CC) -Wall -Wextra -Werror $(SRCS)
-	./a.out test.cub
-d:
-	$(CC) -Wall -Wextra -Werror $(SRCS) -g
-	lldb a.out test.cub
-gdb:
-	$(CC) -Wall -Wextra -Werror $(SRCS) -g3
-	gdb a.out test.cub
-m:
-	$(CC) -Wall -Wextra -Werror $(SRCS) -g -fsanitize=address
-v:
-	$(CC) -Wall -Wextra -Werror $(SRCS) -g
-	valgrind ./a.out test.cub

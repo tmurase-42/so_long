@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 15:38:40 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 17:21:23 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:29:01 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 t_bool	check_in_map(t_map *map, int pos_x, int pos_y)
 {
 	if (map->maps[pos_y][pos_x] != '1')
-	{
 		return (TRUE);
-	}
 	return (FALSE);
 }
 
@@ -38,6 +36,7 @@ void	move_player(t_mlx *mlx, int pos_x, int pos_y)
 		mlx->map->postion[Y] = pos_y;
 		draw_so_long(mlx);
 		mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->img.img, 0 , 0);
+		move_count(mlx);
 		if (is_door)
 			close_window(mlx);
 	}

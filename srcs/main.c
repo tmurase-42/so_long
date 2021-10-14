@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:41:42 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 12:12:41 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:32:45 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	so_long(t_mlx *mlx)
 	draw_so_long(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->img.img, 0, 0);
 	mlx_hook(mlx->window, X_EVENT_KEY_PRESS, (1L << 2), &key_press, mlx);
+	ft_putstr_fd("move count: 0", 1);
 	mlx_hook(mlx->window, X_EVENT_KEY_EXIT, (1L << 17), &close_window, &mlx);
 	mlx_loop(mlx->mlx);
 }

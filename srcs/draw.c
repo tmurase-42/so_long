@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:43:21 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:49:44 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,32 @@ t_img	*pickup_texturetype(t_map *map, t_mlx *mlx, int x, int y)
 	return (NULL);
 }
 
-char	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
+int		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 {
 	int		txt_x;
 	int		txt_y;
-	char		*color;
+	int		*color;
 
 	txt_x = 0;
 	txt_y = 0;
 	txt_x = tex->img_width / (100 / (((double)x / mlx->tex_piece_length) * 100.0));
 	txt_y = tex->img_height / (100 / (((double)y / mlx->tex_piece_length) * 100.0));
 	if (OS_TYPE == LINUX)
-		color = (char *)tex->data + ((4 * tex->img_width * txt_y) + (4 * txt_x));
+		color = tex->data + ((tex->img_width * txt_y) + ( txt_x));
 	else
-		color = (char *)tex->data + ((4 * (tex->size_l / 4) * txt_y) + (4 * txt_x));
+		color = tex->data + (((tex->size_l / 4) * txt_y) + ( txt_x));
 	return (color);
 }
 
 void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 {
-	int x;
-	int y;
-	char	*color;
-	t_img *texture;
+	int		x;
+	int		y;
+	int		*color;
+	t_img	*texture;
 
 	y = 0;
-	texture = pickup_texturetype(mlx->map, mlx ,map_x, map_y);
+	texture = pickup_texturetype(mlx->map, mlx, map_x, map_y);
 	while (y < mlx->tex_piece_length)
 	{
 		x = 0;
@@ -67,9 +67,9 @@ void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 			if (texture != NULL)
 				color = get_texture_pixel_color(texture, mlx, x, y);
 			else
-				*(int *)color = 0xFFFFFF;
+				*color = 0xFFFFFF;
 			my_mlx_pixel_put(&mlx->img, (map_x * mlx->tex_piece_length) + x,
-			(map_y * mlx->tex_piece_length) + y, *(int *)color);
+			(map_y * mlx->tex_piece_length) + y, *color);
 			x++;
 		}
 		y++;

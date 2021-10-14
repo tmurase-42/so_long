@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:29:54 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 12:14:48 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:04:05 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static	void	init_struct_2(t_map *map, t_mlx *mlx)
 	mlx->window_size[Y] = 0;
 	mlx->os_window_size[X] = 0;
 	mlx->os_window_size[Y] = 0;
+	mlx->tex_piece_length = 0;
+	mlx->move_count = 0;
 	init_img(mlx->img);
 	init_img(mlx->player);
 	init_img(mlx->door);

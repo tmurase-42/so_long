@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:31:45 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:07:34 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ struct s_mlx
 	int		window_size[2];
 	int		os_window_size[2];
 	int		tex_piece_length;
+	int		move_count;
 	t_img	img;
 	t_img	player;
 	t_img	door;
@@ -136,11 +137,12 @@ void	get_window_size(t_mlx *mlx);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_so_long(t_mlx *mlx);
 //int		get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
-char		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
+int		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
 void		action_cace(t_mlx *mlx, int key);
 void		initialize_so_long(t_mlx *mlx);
 t_bool		ft_min(int x, int y);
 t_bool		ft_max(int x, int y);
+int			move_count(t_mlx *mlx);
 
 
 
