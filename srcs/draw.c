@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:43:23 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 20:43:59 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,22 @@ int	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 	txt_y = 0;
 	txt_x = tex->img_width / (100 / (((double)x / mlx->tex_piece_length) * 100.0));
 	txt_y = tex->img_height / (100 / (((double)y / mlx->tex_piece_length) * 100.0));
+
+	//tex_x,y は描画する長さの場所から、実際のテクスチャ画像のどれくらいの長さなのかを算出している。
+	printf("tex->img_width [%d]\n",tex->img_width);
+	printf("tex->img_height [%d]\n", tex->img_height);
+	printf("x [%d]\n", x);
+	printf("y [%d]\n", y);
+	printf("tex_piece_length [%d]\n", mlx->tex_piece_length);
+	printf("(x / mlx->tex_piece_length ) [%f]\n",((((double)x / mlx->tex_piece_length))));
+	printf("(y / mlx->tex_piece_length ) [%f]\n",((((double)y / mlx->tex_piece_length))));
+	printf("(x / mlx->tex_piece_length )*100.0 [%f]\n",((((double)x / mlx->tex_piece_length) * 100.0)));
+	printf("(y / mlx->tex_piece_length )*100.0 [%f]\n",((((double)y / mlx->tex_piece_length) * 100.0)));
+	printf("100 / (x / mlx->tex_piece_length )*100.0 [%f]\n",(100 / (((double)x / mlx->tex_piece_length) * 100.0)));
+	printf("100 / (y / mlx->tex_piece_length )*100.0 [%f]\n",(100 / (((double)y / mlx->tex_piece_length) * 100.0)));
+	printf("tex_x [%d]\n", txt_x);
+	printf("txt_y [%d]\n", txt_y);
+	printf("--------------------\n");
 	if (OS_TYPE == LINUX)
 		color = tex->data + ((tex->img_width * txt_y) + txt_x);
 	else
