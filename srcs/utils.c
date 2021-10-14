@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:49:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 19:10:17 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:02:18 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_pointer(void *arg1, void *arg2, void *arg3)
 
 void	free_double_pointer(char **arg1)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (arg1)
@@ -40,7 +40,7 @@ void	free_double_pointer(char **arg1)
 
 void	free_struct(t_list *list)
 {
-	while(list)
+	while (list)
 	{
 		free(list->content);
 		free(list);
