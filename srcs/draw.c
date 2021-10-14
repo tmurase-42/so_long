@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:08:11 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:43:21 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,10 @@ char	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 	txt_y = 0;
 	txt_x = tex->img_width / (100 / (((double)x / mlx->tex_piece_length) * 100.0));
 	txt_y = tex->img_height / (100 / (((double)y / mlx->tex_piece_length) * 100.0));
-
-	// Linux OS
 	if (OS_TYPE == LINUX)
 		color = (char *)tex->data + ((4 * tex->img_width * txt_y) + (4 * txt_x));
 	else
 		color = (char *)tex->data + ((4 * (tex->size_l / 4) * txt_y) + (4 * txt_x));
-
-	// Mac OS
-
 	return (color);
 }
 

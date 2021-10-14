@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:08:11 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:31:45 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,8 @@ void	draw_so_long(t_mlx *mlx);
 char		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y);
 void		action_cace(t_mlx *mlx, int key);
 void		initialize_so_long(t_mlx *mlx);
+t_bool		ft_min(int x, int y);
+t_bool		ft_max(int x, int y);
 
 
 

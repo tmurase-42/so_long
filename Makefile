@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/14 13:03:26 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/14 13:32:02 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SDIR			= srcs/
 FILES			= main.c import.c import_utils.c hook.c position.c\
 					leaks.c window.c draw.c action.c\
 					error.c init.c get_next_line.c tmp.c \
-					utils.c map_error.c map_error_utils.c
+					utils.c map_error.c map_error_utils.c min_max.c
 SRCS		= $(addprefix $(SDIR), $(FILES))
 OBJS		= $(SRCS:.c=.o)
 CC				= gcc
