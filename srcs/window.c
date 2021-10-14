@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:13:59 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:11:03 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 16:36:38 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ void	decesion_texture_length(t_mlx *mlx)
 	if (texture_length[X] < texture_length[Y])
 		texture_length[Y] = texture_length[X];
 	else
-	{
 		texture_length[X] = texture_length[Y];
-	}
 	mlx->tex_piece_length = texture_length[X];
 }
 
