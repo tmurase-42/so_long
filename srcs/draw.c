@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:49:44 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:43:23 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 	char	*dst;
 
 	dst = (char *)data->data + (y * (data->size_l) + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 t_img	*pickup_texturetype(t_map *map, t_mlx *mlx, int x, int y)
@@ -33,7 +33,7 @@ t_img	*pickup_texturetype(t_map *map, t_mlx *mlx, int x, int y)
 	return (NULL);
 }
 
-int		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
+int	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 {
 	int		txt_x;
 	int		txt_y;
@@ -44,9 +44,9 @@ int		*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 	txt_x = tex->img_width / (100 / (((double)x / mlx->tex_piece_length) * 100.0));
 	txt_y = tex->img_height / (100 / (((double)y / mlx->tex_piece_length) * 100.0));
 	if (OS_TYPE == LINUX)
-		color = tex->data + ((tex->img_width * txt_y) + ( txt_x));
+		color = tex->data + ((tex->img_width * txt_y) + txt_x);
 	else
-		color = tex->data + (((tex->size_l / 4) * txt_y) + ( txt_x));
+		color = tex->data + (((tex->size_l / 4) * txt_y) + txt_x);
 	return (color);
 }
 
@@ -69,7 +69,7 @@ void	draw_one_texture(t_mlx *mlx, int map_x, int map_y)
 			else
 				*color = 0xFFFFFF;
 			my_mlx_pixel_put(&mlx->img, (map_x * mlx->tex_piece_length) + x,
-			(map_y * mlx->tex_piece_length) + y, *color);
+				(map_y * mlx->tex_piece_length) + y, *color);
 			x++;
 		}
 		y++;
@@ -86,7 +86,7 @@ void	draw_so_long(t_mlx *mlx)
 	while (mlx->map->maps[y])
 	{
 		x = 0;
-		while(mlx->map->maps[y][x])
+		while (mlx->map->maps[y][x])
 		{
 			draw_one_texture(mlx, x, y);
 			x++;

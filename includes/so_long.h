@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:07:34 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:47:28 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ void	init_outer_wall(t_map *map);
 void	flood_fill(int x, int y, t_map *map, int *status);
 void	get_start_position(t_map *map);
 void	import_texture(t_map *map, t_mlx *mlx);
-char	**get_texture_path(void);
 int		close_window(t_mlx *mlx);
 int		key_press(int key, t_mlx *mlx);
 void	get_position(t_mlx *mlx);

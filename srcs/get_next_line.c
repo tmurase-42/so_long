@@ -6,13 +6,13 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:22:47 by tmurase           #+#    #+#             */
-/*   Updated: 2020/08/03 11:47:50 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:45:19 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int				save_to_line(char **save, int fd, char **line)
+static int	save_to_line(char **save, int fd, char **line)
 {
 	int		len;
 	char	*tmp;
@@ -38,7 +38,7 @@ static int				save_to_line(char **save, int fd, char **line)
 	return (1);
 }
 
-static int				return_err(char **line, ssize_t filesize)
+static int	return_err(char **line, ssize_t filesize)
 {
 	if (filesize < 0)
 		return (-1);
@@ -46,13 +46,14 @@ static int				return_err(char **line, ssize_t filesize)
 	return (0);
 }
 
-static int				read_to_save(int fd, char **line,
+static int	read_to_save(int fd, char **line,
 														char **save, char *buf)
 {
 	char		*temp;
 	ssize_t		filesize;
 
-	while ((filesize = read(fd, buf, BUFFER_SIZE)) > 0)
+	filesize = read(fd, buf, BUFFER_SIZE);
+	while (filesize > 0)
 	{
 		buf[filesize] = '\0';
 		if (save[fd] == NULL)
@@ -72,14 +73,15 @@ static int				read_to_save(int fd, char **line,
 	return (save_to_line(save, fd, line));
 }
 
-int						get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*save[1024];
 	char		*buf;
 
 	if ((fd < 0) || (line == 0) || (BUFFER_SIZE <= 0))
 		return (-1);
-	if (!(buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
 		return (-1);
 	return (read_to_save(fd, line, save, buf));
 }
