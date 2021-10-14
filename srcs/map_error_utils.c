@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:01:46 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:52:42 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:59:09 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	flood_fill(int x, int y, t_map *map, int *status)
 	if (map->outer_wall[y][x] == '#')
 		return ;
 	map->outer_wall[y][x] = '#';
-	if (map->outer_wall[y - 1][x] == '0' || map->outer_wall[y - 1][x] == 'C' || map->outer_wall[y - 1][x] == 'E' || map->outer_wall[y - 1][x] == ' ')
+	if (ft_strchr(" 0CE", map->outer_wall[y - 1][x]))
 		flood_fill(x, y - 1, map, status);
-	if (map->outer_wall[y + 1][x] == '0' || map->outer_wall[y + 1][x] == 'C' || map->outer_wall[y + 1][x] == 'E' || map->outer_wall[y + 1][x] == ' ')
+	if (ft_strchr(" 0CE", map->outer_wall[y + 1][x]))
 		flood_fill(x, y + 1, map, status);
-	if (map->outer_wall[y][x - 1] == '0' || map->outer_wall[y][x - 1] == 'C' || map->outer_wall[y][x - 1] == 'E' || map->outer_wall[y][x - 1] == ' ')
+	if (ft_strchr(" 0CE", map->outer_wall[y][x - 1]))
 		flood_fill(x - 1, y, map, status);
-	if (map->outer_wall[y][x + 1] == '0' || map->outer_wall[y][x + 1] == 'C' || map->outer_wall[y][x + 1] == 'E' || map->outer_wall[y][x + 1] == ' ')
+	if (ft_strchr(" 0CE", map->outer_wall[y][x + 1]))
 		flood_fill(x + 1, y, map, status);
 }
