@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:55:20 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/11 08:30:37 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 12:19:12 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	import_mapfile(char *mapfile, t_map *map)
 {
-	int	fd;
-	int	next;
+	int		fd;
+	int		next;
 	char	*line;
 	char	*tmp;
 	char	*mapline;
@@ -64,17 +64,5 @@ void	import_texture(t_map *map, t_mlx *mlx)
 	load_image(mlx, &mlx->door, "./texture/door.xpm");
 	load_image(mlx, &mlx->item, "./texture/item.xpm");
 	load_image(mlx, &mlx->wall, "./texture/wall.xpm");
-
-//	catch_error(open("./texture/tmp/avatar.xpm", O_RDONLY, O_DIRECTORY), 2);
-//	catch_error(open("./texture/tmp/door.xpm", O_RDONLY, O_DIRECTORY), 2);
-//	catch_error(open("./texture/tmp/item.xpm", O_RDONLY, O_DIRECTORY), 2);
-//	catch_error(open("./texture/tmp/wall.xpm", O_RDONLY, O_DIRECTORY), 2);
-//	load_image(mlx, &mlx->player,"./texture/tmp/avatar.xpm");
-//	load_image(mlx, &mlx->door, "./texture/tmp/door.xpm");
-//	load_image(mlx, &mlx->item, "./texture/tmp/item.xpm");
-//	load_image(mlx, &mlx->wall, "./texture/tmp/wall.xpm");
-
-	//while (mlx->player.data != NULL)
-	//	printf("mlx->palyer [%p]\n", mlx->player.data++);
 	(void)map;
 }
