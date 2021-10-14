@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:29 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 12:42:06 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:01:47 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	get_items_position(t_mlx *mlx)
 	int	y;
 
 	y = 0;
-	while(mlx->map->maps[y])
+	while (mlx->map->maps[y])
 	{
 		x = 0;
 		while (mlx->map->maps[y][x])
@@ -44,7 +44,6 @@ void	get_items_position(t_mlx *mlx)
 		x = 0;
 		y++;
 	}
-
 }
 
 void	get_start_position(t_map *map)
