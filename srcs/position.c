@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:29 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 15:01:47 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 10:25:08 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,4 @@ void	get_position(t_mlx *mlx)
 {
 	get_start_position(mlx->map);
 	get_items_position(mlx);
-	test_printf_items(mlx);
 }

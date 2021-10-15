@@ -6,18 +6,18 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/31 17:56:50 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/05 11:40:43 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 10:23:43 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef GET_NEXT_LINE_H
-#	define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-#include <stdlib.h>
-#include <stddef.h>
-#include <unistd.h>
-#include <sys/types.h>
-#define BUFFER_SIZE 1000
+# include <stdlib.h>
+# include <stddef.h>
+# include <unistd.h>
+# include <sys/types.h>
+# define BUFFER_SIZE 1000
 
 size_t		ft_strlen(const char *s);
 char		*ft_strjoin(char const *s1, char const *s2);
