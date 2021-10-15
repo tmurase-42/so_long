@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:55:20 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/15 12:31:57 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 12:49:30 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	load_image(t_mlx *mlx, t_img *img, char *filepath)
 			&img->bpp, &img->size_l, &img->endian);
 	if (img->bpp == 0)
 		systemcall_error("Error\nso_long", 2);
-	if (img->img_height > 2000 || img->img_width > 2000)
+	if (img->img_height > 1000 || img->img_width > 1000)
 		map_error(5);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:10:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 15:06:28 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 13:00:23 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	map_error(int	num)
 		ft_putstr_fd("map is not rectangular\n", 2);
 	if (num == 8)
 		ft_putstr_fd("mapfile name is invalid\n", 2);
+	if (num == 9)
+		ft_putstr_fd("map too long\n", 2);
 	system("leaks so_long");
 	exit(2);
 }

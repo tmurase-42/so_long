@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:27:17 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 13:00:07 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 13:05:38 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ t_bool	check_conposition(t_map *map)
 {
 	if (map->composition->collectible > 20)
 		return (FALSE);
-	if (map->composition->exit_door > 1)
+	if (map->composition->collectible < 1)
 		return (FALSE);
-	if (map->composition->start_point > 1)
+	if (map->composition->exit_door != 1)
+		return (FALSE);
+	if (map->composition->start_point != 1)
 		return (FALSE);
 	return (TRUE);
 }
@@ -99,6 +101,8 @@ t_bool	is_rectangular(t_map *map)
 
 void	check_mapfile(t_mlx *mlx)
 {
+	if (check_map_length(mlx->map) == FALSE)
+		map_error(9);
 	if (is_rectangular(mlx->map) == FALSE)
 		map_error(7);
 	if (so_long_strchr(mlx->map) == FALSE)
