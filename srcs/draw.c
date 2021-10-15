@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/15 09:55:56 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 17:40:46 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,23 @@ t_img	*pickup_texturetype(t_map *map, t_mlx *mlx, int x, int y)
 
 int	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 {
-	int		txt_x;
-	int		txt_y;
+	int		x_basedon_tex;
+	int		y_basedon_tex;
 	int		*color;
 	double	percentage_basedon_100_x;
 	double	percentage_basedon_100_y;
-	double	percetage_basedon_tex_x;
-	double	percetage_basedon_tex_y;
 
-	percetage_basedon_tex_x = ((double)x / mlx->tex_piece_length) * 100.0;
-	percetage_basedon_tex_y = ((double)y / mlx->tex_piece_length) * 100.0;
-	percentage_basedon_100_x = 100 / percetage_basedon_tex_x;
-	percentage_basedon_100_y = 100 / percetage_basedon_tex_y;
-	txt_x = tex->img_width / percentage_basedon_100_x;
-	txt_y = tex->img_height / percentage_basedon_100_y;
+	percentage_basedon_100_x
+		= 100 / (((double)x / mlx->tex_piece_length) * 100.0);
+	percentage_basedon_100_y
+		= 100 / (((double)y / mlx->tex_piece_length) * 100.0);
+	x_basedon_tex = tex->img_width / percentage_basedon_100_x;
+	y_basedon_tex = tex->img_height / percentage_basedon_100_y;
 	if (OS_TYPE == LINUX)
-		color = tex->data + ((tex->img_width * txt_y) + txt_x);
+		color = tex->data + ((tex->img_width * y_basedon_tex) + x_basedon_tex);
 	else
-		color = tex->data + (((tex->size_l / 4) * txt_y) + txt_x);
+		color = tex->data
+			+ (((tex->size_l / 4) * y_basedon_tex) + x_basedon_tex);
 	return (color);
 }
 
