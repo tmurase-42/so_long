@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:01:46 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:59:09 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 12:59:40 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,24 @@ void	flood_fill(int x, int y, t_map *map, int *status)
 		flood_fill(x - 1, y, map, status);
 	if (ft_strchr(" 0CE", map->outer_wall[y][x + 1]))
 		flood_fill(x + 1, y, map, status);
+}
+
+t_bool	check_map_length(t_map *map)
+{
+
+	size_t	length;
+	int		i;
+
+	length = 0;
+	i = 0;
+	while (map->maps[i])
+	{
+		length = ft_strlen(map->maps[i]);
+		if (length > MAX_X)
+			return (FALSE);
+		i++;
+	}
+	if (i > MAX_Y)
+		return (FALSE);
+	return (TRUE);
 }

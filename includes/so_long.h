@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:50:49 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/15 10:24:31 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 12:59:52 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,4 +133,5 @@ int		catch_error(int	num,	int	error_num);
 t_bool	ft_min(int x, int y);
 t_bool	ft_max(int x, int y);
 t_bool	so_long_strchr(t_map *map);
+t_bool	check_map_length(t_map *map);
 #endif
