@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:55:02 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 20:43:59 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 09:55:56 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,17 @@ int	*get_texture_pixel_color(t_img *tex, t_mlx *mlx, int x, int y)
 	int		txt_x;
 	int		txt_y;
 	int		*color;
+	double	percentage_basedon_100_x;
+	double	percentage_basedon_100_y;
+	double	percetage_basedon_tex_x;
+	double	percetage_basedon_tex_y;
 
-	txt_x = 0;
-	txt_y = 0;
-	txt_x = tex->img_width / (100 / (((double)x / mlx->tex_piece_length) * 100.0));
-	txt_y = tex->img_height / (100 / (((double)y / mlx->tex_piece_length) * 100.0));
-
-	//tex_x,y は描画する長さの場所から、実際のテクスチャ画像のどれくらいの長さなのかを算出している。
-	printf("tex->img_width [%d]\n",tex->img_width);
-	printf("tex->img_height [%d]\n", tex->img_height);
-	printf("x [%d]\n", x);
-	printf("y [%d]\n", y);
-	printf("tex_piece_length [%d]\n", mlx->tex_piece_length);
-	printf("(x / mlx->tex_piece_length ) [%f]\n",((((double)x / mlx->tex_piece_length))));
-	printf("(y / mlx->tex_piece_length ) [%f]\n",((((double)y / mlx->tex_piece_length))));
-	printf("(x / mlx->tex_piece_length )*100.0 [%f]\n",((((double)x / mlx->tex_piece_length) * 100.0)));
-	printf("(y / mlx->tex_piece_length )*100.0 [%f]\n",((((double)y / mlx->tex_piece_length) * 100.0)));
-	printf("100 / (x / mlx->tex_piece_length )*100.0 [%f]\n",(100 / (((double)x / mlx->tex_piece_length) * 100.0)));
-	printf("100 / (y / mlx->tex_piece_length )*100.0 [%f]\n",(100 / (((double)y / mlx->tex_piece_length) * 100.0)));
-	printf("tex_x [%d]\n", txt_x);
-	printf("txt_y [%d]\n", txt_y);
-	printf("--------------------\n");
+	percetage_basedon_tex_x = ((double)x / mlx->tex_piece_length) * 100.0;
+	percetage_basedon_tex_y = ((double)y / mlx->tex_piece_length) * 100.0;
+	percentage_basedon_100_x = 100 / percetage_basedon_tex_x;
+	percentage_basedon_100_y = 100 / percetage_basedon_tex_y;
+	txt_x = tex->img_width / percentage_basedon_100_x;
+	txt_y = tex->img_height / percentage_basedon_100_y;
 	if (OS_TYPE == LINUX)
 		color = tex->data + ((tex->img_width * txt_y) + txt_x);
 	else
