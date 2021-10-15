@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:17:47 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:32:03 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 17:42:04 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	close_window(t_mlx *mlx)
 {
-	system("leaks so_long");
 	exit(0);
 	(void)mlx;
 	return (0);

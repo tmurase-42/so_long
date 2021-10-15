@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:01:46 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/15 12:59:40 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 13:11:47 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	flood_fill(int x, int y, t_map *map, int *status)
 
 t_bool	check_map_length(t_map *map)
 {
-
 	size_t	length;
 	int		i;
 
