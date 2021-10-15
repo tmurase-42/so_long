@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 15:38:40 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:40:43 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 18:27:28 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,32 @@ t_bool	check_in_map(t_map *map, int pos_x, int pos_y)
 	return (FALSE);
 }
 
+t_bool	check_exit(t_mlx *mlx, int pos_x, int pos_y)
+{
+	if (mlx->map->maps[pos_y][pos_x] == 'E')
+	{
+		if (mlx->map->composition->collectible != 0)
+		{
+			ft_putstr_fd("                                  \r", 1);
+			ft_putstr_fd("not getting all the items", 1);
+			ft_putstr_fd("                                  \r", 1);
+		}
+		return (TRUE);
+	}
+	return (FALSE);
+}
+
 void	move_player(t_mlx *mlx, int pos_x, int pos_y)
 {
 	t_bool	is_in_wall;
-	t_bool	is_door;
+	t_bool	is_exit;
 
-	is_door = FALSE;
-	if (mlx->map->maps[pos_y][pos_x] == 'E')
-		is_door = TRUE;
+	is_exit = check_exit(mlx, pos_x, pos_y);
 	is_in_wall = check_in_map(mlx->map, pos_x, pos_y);
+	if (mlx->map->maps[pos_y][pos_x] == 'C')
+		mlx->map->composition->collectible--;
+	if (is_exit && mlx->map->composition->collectible != 0)
+		return ;
 	if (is_in_wall)
 	{
 		mlx->map->maps[mlx->map->postion[Y]][mlx->map->postion[X]] = '0';
@@ -37,8 +54,11 @@ void	move_player(t_mlx *mlx, int pos_x, int pos_y)
 		draw_so_long(mlx);
 		mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->img.img, 0, 0);
 		move_count(mlx);
-		if (is_door)
+		if (is_exit && mlx->map->composition->collectible == 0)
+		{
+			ft_putstr_fd("\nSUCCESS!\n", 1);
 			close_window(mlx);
+		}
 	}
 }
 
