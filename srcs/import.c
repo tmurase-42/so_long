@@ -43,10 +43,8 @@ char	*get_mapinfo(int fd)
 
 void	check_filename(char *filename, char *extension)
 {
-	int		i;
 	char	*file_extention;
 
-	i = 0;
 	file_extention = ft_strchr(filename, '.');
 	if (!file_extention)
 		map_error(8);
