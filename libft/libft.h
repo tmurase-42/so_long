@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 16:34:23 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/09 11:45:54 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/10/15 18:29:17 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
-#include <stdio.h>
+# include <stdio.h>
 
-typedef struct s_list t_list;
+typedef struct s_list	t_list;
 
 struct s_list
 {
-	void			*content;
+	void	*content;
 	t_list	*previous;
 	t_list	*next;
 };

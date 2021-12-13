@@ -6,7 +6,7 @@
 #    By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 13:46:33 by tmurase           #+#    #+#              #
-#    Updated: 2021/10/15 10:10:48 by tmurase          ###   ########.fr        #
+#    Updated: 2021/10/15 18:29:58 by tmurase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,6 @@ $(NAME): $(OBJS)
 	$(MAKE) -C ./mlx
 	cp ./mlx/libmlx.dylib libmlx.dylib
 	$(CC) $(OBJS) $(CFLAGS) $(MLXFLAGS) -lm ./libft/libft.a -o $(NAME)
-	#$(CC) $(OBJS) $(CFLAGS) $(MLXFLAGS) -lm ./libft/libft.a -o $(NAME) -g -fsanitize=address
 
 clean:
 	$(MAKE) -C ./libft clean
