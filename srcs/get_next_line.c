@@ -6,7 +6,7 @@
 /*   By: tmurase <tmurase@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:22:47 by tmurase           #+#    #+#             */
-/*   Updated: 2021/10/14 14:45:19 by tmurase          ###   ########.fr       */
+/*   Updated: 2021/12/15 21:53:06 by tmurase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	read_to_save(int fd, char **line,
 			free(save[fd]);
 			save[fd] = temp;
 		}
-		if (ft_strchr(save[fd], '\n'))
+		if (ft_strchr(save[fd], '\n'), ft_strchr(save[fd], '\0'))
 			break ;
 	}
 	free(buf);
